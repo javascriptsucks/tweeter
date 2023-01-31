@@ -1,0 +1,27 @@
+/* nav bar CSS */
+.nav-container {
+  position: fixed;
+  height: 120px;
+  width: 100%;
+  background-color: #4056a1;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-family: Bungee;
+  margin: 50px 1.5em auto 1.5em;
+}
+
+.nav-slogContainer {
+  display: flex;
+  flex-direction: column;
+  margin: auto 1.5em auto 1.5em;
+  align-items: center;
+  font-size:medium;
+}
+
+.nav-slog {
+
+}

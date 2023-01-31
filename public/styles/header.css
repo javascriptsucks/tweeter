@@ -1,0 +1,16 @@
+/* Header CSS styles */
+
+.header-container {
+  background-color: #F7EFE5;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+  height: 520px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.header-imgContainer {
+  margin: 130px auto auto auto;
+}
