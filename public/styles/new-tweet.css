@@ -2,8 +2,8 @@
 
 .new-tweet {
   width: 80%;
-  margin: 20px auto;
-  height: 450px;
+  margin: 10px auto;
+  height: 300px;
 }
 
 .newTweet-form {
@@ -12,8 +12,7 @@
 }
 
 
-
-.newTweet-form textarea {
+#newTweet-text {
   height: 3em;
   border: 0ex;
   border-bottom: 5px solid rgb(85, 81, 74);

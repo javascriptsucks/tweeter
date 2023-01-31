@@ -1,0 +1,52 @@
+/* Tweet containers CSS styles */
+
+.tweet-container {
+  width: 80%;
+  margin: 10px auto;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  border: 5px solid rgb(85, 81, 74);
+
+}
+
+.tweet-header {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 10px
+}
+
+.tweet-avatar {
+  display: flex;
+  align-items: center;
+}
+
+.tweet-avatar span>img {
+  height: 2em;
+  margin: auto 25px;
+}
+
+.tweet-acountName {
+  margin: auto 25px;
+  color: rgb(209, 212, 230)
+}
+
+.tweet-body {
+  height: 120px;
+  width: 95%;
+  border-bottom: 5px solid rgb(85, 81, 74);
+  margin: 5px auto;
+}
+.tweet-body div {
+  width: 95%;
+  margin: 5px auto;
+}
+
+.tweet-footer {
+  display: flex;
+  height: 80px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.t
