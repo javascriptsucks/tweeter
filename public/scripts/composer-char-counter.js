@@ -1,6 +1,5 @@
-$(document).ready(function() {
-  // --- our code goes here ---
-  $('#newTweet-text').on('keyup', function(e) {
+const charCount = function() {
+  $('#newTweet-text').on('keyup', function() {
     let countLeft = 140 - this.value.length;
     $(this).siblings(0).children('output').text(countLeft);
     if (countLeft <= 0) {
@@ -11,6 +10,11 @@ $(document).ready(function() {
 
   });
 
+};
+
+$(document).ready(function() {
+  // --- our code goes here ---
+  charCount();
 });
 
 
