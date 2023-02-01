@@ -1,8 +1,9 @@
 /* Tweet containers CSS styles */
 
+
 .tweet-container {
   width: 80%;
-  margin: 10px auto;
+  margin: 15px auto;
   height: 350px;
   display: flex;
   flex-direction: column;
@@ -66,4 +67,9 @@
   box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
+}
+
+/* Prepare for tweet showup animate */
+.none {
+  display: none;
 }
