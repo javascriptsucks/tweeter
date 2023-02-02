@@ -4,10 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-const getDaysBefore = function(timeStamp) {
-  const timeNow = new Date().getTime();
-  return Math.round((timeNow - timeStamp) / 1000 / 3600 / 24);
-};
+
 
 
 const createTweetElement = function(tweet) {
@@ -46,23 +43,12 @@ const renderTweets = function(tweets) {
   $.each(tweets, function($i, $eachTweet) {
     //
     const $tweet = createTweetElement($eachTweet);
-    $('.main-container').append($tweet);
+    $('.new-tweet').after($tweet);
     $('.tweet-container').fadeIn(800);
   });
 };
 
-const sendTweetAJAX = function() {
-  $('.newTweet-form').on('submit', function(e) {
-    e.preventDefault();
-    const data = $(this).serialize();
-    $.post("/tweets", data,
-      function(data) {
-        console.log(`Text Data sent`);
-      },
-    );
-    $(this).children('textarea').val('');
-  });
-};
+
 
 
 $(document).ready(function() {
@@ -74,11 +60,36 @@ $(document).ready(function() {
     });
   };
 
+
+  const sendTweetAJAX = function() {
+    $('.newTweet-form').on('submit', function(e) {
+      e.preventDefault();
+      const lengthCheck = $('.newTweet-form textarea').val().length;
+      console.log(lengthCheck);
+      if (lengthCheck > 140 || !lengthCheck) {
+        alert('InvalidTweet message length detected! ');
+        return;
+      } else {
+        const userEscap = $('<div/>').text($('.newTweet-form textarea').val()).html();
+        console.log(userEscap);
+        $('.newTweet-form textarea').val(userEscap);
+        const data = $(this).serialize();
+        $.post("/tweets", data,
+          function() {
+            console.log(`Text Data sent`);
+            $('.main-container:not(:first)').empty();
+            loadTweets();
+
+            $('#newTweet-text').val('');
+          },
+        );
+
+      }
+    });
+  };
+
   loadTweets();
 
-
-  //Render data files into real HTML elements
-  //renderTweets(data);
 
 
   //Setting event listener on textarea form
