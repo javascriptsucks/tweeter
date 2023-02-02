@@ -6,12 +6,14 @@
 
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/1.1.0/font-awesome-animation.min.css" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
 
     <!-- App CSS -->
+    <link rel="stylesheet" href="/styles/error.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
      <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
      <link rel="stylesheet" href="/styles/header.css" type="text/css" />
@@ -35,7 +37,9 @@
 
       <div class="nav-slogContainer">
         <span class="nav-slog"><strong>Write</strong> a New tweet</span>
-        <span><i class="fa-solid fa-angles-down"></i></span>
+        <span class="nav-toggle">
+          <i class="fa-solid fa-angles-down animated-hover"></i>
+        </span>
 
       </div>
     </nav>
@@ -46,14 +50,15 @@
       </div>
       <br>
       <div>
-          <h2>Your Name</h2>
+          <h2><strong>Chang</strong> Li</h2>
       </div>
     </header>
 
     <!-- Page-specific (main) content here -->
     <main class="main-container">
+      <div id="alert-box"></div>
+
       <section class="new-tweet">
-        <h2>Compose Tweet</h2>
         <form method="POST" action="/tweets" class="newTweet-form">
           <!--<label for="tweet-text">What are you humming about?</label>-->
           <textarea name="text" id="newTweet-text" placeholder="What are you humming about?"></textarea>
@@ -63,7 +68,7 @@
           </div>
         </form>
       </section>
-
+      <button type="button" class="main-toggle none"><i class="fa-solid fa-angles-up"></i></button>
     </main>
   </body>
 </html>

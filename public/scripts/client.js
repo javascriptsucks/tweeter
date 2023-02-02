@@ -4,7 +4,32 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+const alertBoxPop = function(errMsg) {
+  //Build div box for errMsg
+  const html = `
+    <div class="alert-message none">
+      <span>
+        ${errMsg}
+      </span>
+    </div>
+  `;
+  //Append message box inside of alert box
+  //Traversal down to the message box slideDown show message
+  //Remove class name none from message
+  $('#alert-box').append(html);
+  $('#alert-box').children().slideDown(800).removeClass('none');
 
+  //Set interval after 3 second to slideUp the message box
+  //Clear interval after 3 second
+  const timer = setInterval(function() {
+    $('#alert-box').children().slideUp(400, function() {
+      $(this).empty();
+    });
+
+    clearInterval(timer);
+  }, 3000);
+
+};
 
 
 const createTweetElement = function(tweet) {
@@ -48,38 +73,81 @@ const renderTweets = function(tweets) {
   });
 };
 
+const formToggle = function() {
+  $('.nav-toggle').on('click', function() {
+    let attr = $('.new-tweet').attr('style');
+    if (!attr) {
+      $('.new-tweet').slideUp();
+    } else {
+      $('.new-tweet').slideDown().find('textarea').focus();
 
+    }
+  });
+};
+
+const mainToggleBack = function() {
+  $(window).on('scroll', function() {
+    if ($(this).scrollTop() >= 800) {
+      $('.nav-slogContainer').stop().fadeOut();
+      $('.main-toggle').removeClass('none').stop().fadeIn('slow');
+      let events = $._data(document.querySelector('.main-toggle'), "events");
+      if (!events) {
+        $('.main-toggle').on('click', function() {
+          $('body, html').stop().animate({
+            scrollTop: 0
+          });
+          let attr = $('.new-tweet').attr('style');
+          if (attr) {
+            $('.new-tweet').slideDown();
+          }
+          $('textarea').focus();
+        });
+      }
+    } else {
+      $('.nav-slogContainer').stop().fadeIn();
+
+      $('.main-toggle').stop().fadeOut('slow', function() {
+        $(this).unbind();
+      });
+
+    }
+  });
+};
 
 
 $(document).ready(function() {
 
   const loadTweets = function() {
     $.get('/tweets', function(data) {
-      console.log(`Get request from tweet: ${data}`);
       renderTweets(data);
     });
   };
 
-
+  //Function to set submit event listener on form
   const sendTweetAJAX = function() {
     $('.newTweet-form').on('submit', function(e) {
       e.preventDefault();
+      //Get value from textarea and check if length valid
       const lengthCheck = $('.newTweet-form textarea').val().length;
-      console.log(lengthCheck);
       if (lengthCheck > 140 || !lengthCheck) {
-        alert('InvalidTweet message length detected! ');
+        alertBoxPop('Invilid Tweet text length detected!');
+
+        //alert('InvalidTweet message length detected! ');
         return;
       } else {
+        //Escape user XSS by text() method
         const userEscap = $('<div/>').text($('.newTweet-form textarea').val()).html();
-        console.log(userEscap);
+        //Reassign textarea value by safe text
         $('.newTweet-form textarea').val(userEscap);
         const data = $(this).serialize();
+        //Jq AJAX post request
         $.post("/tweets", data,
           function() {
-            console.log(`Text Data sent`);
+            //Empty elements in main element except the Form element
             $('.main-container:not(:first)').empty();
+            //Rerender page with new text message make sure the new tweet post on the top
             loadTweets();
-
+            //Empty value in textarea
             $('#newTweet-text').val('');
           },
         );
@@ -89,11 +157,10 @@ $(document).ready(function() {
   };
 
   loadTweets();
-
-
+  mainToggleBack();
+  formToggle();
 
   //Setting event listener on textarea form
   //Send posting request on /tweets with input value
   sendTweetAJAX();
-
 });

@@ -2,13 +2,17 @@
 
 .new-tweet {
   width: 80%;
-  margin: 20px auto;
+  margin: 35px auto;
   height: 300px;
+  display: flex;
+  align-items: center;
+
 }
 
 .newTweet-form {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 

@@ -32,3 +32,23 @@ body {
   width: 90%;
   color: #545149;
 }
+
+/* Toggle back button CSSs */
+.main-toggle {
+  position: fixed;
+  bottom: 80px;
+  right: 80px;
+  width: 80px;
+  height: 80px;
+  background-color: rgba(249, 74, 41, 0.8);
+  color: aliceblue;
+  border: none;
+  border-radius: 50%
+}
+
+.main-toggle:hover {
+  color: rgb(214, 19, 85, 0.8);
+  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}

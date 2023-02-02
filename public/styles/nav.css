@@ -20,9 +20,28 @@
   flex-direction: column;
   margin: auto 1.5em auto 1.5em;
   align-items: center;
-  font-size:medium;
+  font-size: medium;
+}
+
+.nav-slogContainer span>i {
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+
+}
+
+.nav-slogContainer span>i:hover, .nav-slogContainer span>i:focus, .nav-slogContainer span>i:active {
+  color: rgb(202, 152, 36);
+  -webkit-transform: translateY(-8px);
+  transform: translateY(-8px);
 }
 
 .nav-slog {
-
+  margin: 15px auto;
 }
