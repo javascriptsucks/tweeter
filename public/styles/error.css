@@ -6,9 +6,9 @@
   border-radius: 10px;
   border: 5px solid rgba(249, 74, 41, 0.8);
   text-align: center;
+  color: rgba(249, 74, 41, 0.8);
 }
 
 .alert-message span {
   width: 25%;
-  margin-top: 5px;
 }

@@ -19,7 +19,7 @@
 
 .tweet-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin: 30px 10px
 }
 
@@ -73,3 +73,9 @@
 .none {
   display: none;
 }
+
+
+/*     &:not(:last-of-type()) {
+  margin
+}
+*/

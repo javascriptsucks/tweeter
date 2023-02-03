@@ -4,26 +4,38 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+//const charCount = require('./composer-char-counter.js');
+
+
 const alertBoxPop = function(errMsg) {
   //Build div box for errMsg
   const html = `
     <div class="alert-message none">
       <span>
+        //<i class="fa-solid fa-skull-crossbones"></i>
         ${errMsg}
+        //<i class="fa-solid fa-skull-crossbones"></i>
       </span>
     </div>
   `;
   //Append message box inside of alert box
   //Traversal down to the message box slideDown show message
-  //Remove class name none from message
-  $('#alert-box').append(html);
-  $('#alert-box').children().slideDown(800).removeClass('none');
+  console.log($('#alert-box').children().length);
+  //Check if alert-box has any child, if no then append the mesaege
+  //Otherwise just skip. Make sure there is only one box exist inside of alert-box
+  if (!$('#alert-box').children().length) {
+    $('#alert-box').append(html);
+    $('#alert-box').children().stop().slideDown(800);
+
+  }
 
   //Set interval after 3 second to slideUp the message box
   //Clear interval after 3 second
+  //Bug alert!!!!!!! Mutiple click generate mutiple interval
   const timer = setInterval(function() {
-    $('#alert-box').children().slideUp(400, function() {
-      $(this).empty();
+    $('#alert-box').children().stop().slideUp(300, function() {
+      //Remove message box entirly entirely after all animation done
+      $(this).remove();
     });
 
     clearInterval(timer);
@@ -48,7 +60,7 @@ const createTweetElement = function(tweet) {
           </div>
         </div>
         <footer class="tweet-footer">
-          <span>${timeago.format(tweet.created_at)} days ago</span>
+          <span>${timeago.format(tweet.created_at)}</span>
           <div class="tweet-icons">
             <i class="fa-solid fa-flag"></i>
             <i class="fa-solid fa-retweet"></i>
@@ -69,19 +81,18 @@ const renderTweets = function(tweets) {
     //
     const $tweet = createTweetElement($eachTweet);
     $('.new-tweet').after($tweet);
-    $('.tweet-container').fadeIn(800);
+    $('.tweet-container').fadeIn(800, function() {
+      $(this).removeClass('none');
+    }).removeAttr('style');
   });
 };
 
 const formToggle = function() {
   $('.nav-toggle').on('click', function() {
-    let attr = $('.new-tweet').attr('style');
-    if (!attr) {
-      $('.new-tweet').slideUp();
-    } else {
-      $('.new-tweet').slideDown().find('textarea').focus();
+    //Toggle Tweet form with click
+    //Get the textarea focused when Toggle finish
+    $('.new-tweet').stop().slideToggle().find('textarea').focus();
 
-    }
   });
 };
 
@@ -107,6 +118,7 @@ const mainToggleBack = function() {
       $('.nav-slogContainer').stop().fadeIn();
 
       $('.main-toggle').stop().fadeOut('slow', function() {
+
         $(this).unbind();
       });
 
@@ -149,6 +161,8 @@ $(document).ready(function() {
             loadTweets();
             //Empty value in textarea
             $('#newTweet-text').val('');
+
+            $('.counter').text($.fn.countCharRemain());
           },
         );
 

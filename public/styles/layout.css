@@ -52,3 +52,32 @@ body {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
+
+
+@media screen and (min-width:768px) {
+header {
+  float: left;
+  margin-top: 100px;
+  width: 40%;
+}
+
+.header-container {
+  width: 40%;
+}
+
+main {
+  float: right;
+
+}
+
+.main-container {
+  width: 60%;
+   margin-top: 150px;
+}
+
+.tweet-header {
+  width: 95%;
+  justify-content: space-between;
+}
+
+}
