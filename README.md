@@ -5,6 +5,9 @@ Tweeter is a simple, single-page Twitter clone. Students will build upon to prac
 ## Final Product
 !["screenshot of home page"](https://github.com/javascriptsucks/tweeter/blob/master/doc/tweet1.png?raw=true)
 !["screenshot of home page"](https://github.com/javascriptsucks/tweeter/blob/master/doc/tweet2.png?raw=true)
+!["screenshot of home page"](https://github.com/javascriptsucks/tweeter/blob/master/doc/tweet3.png?raw=true)
+!["screenshot of home page"](https://github.com/javascriptsucks/tweeter/blob/master/doc/tweet4.png?raw=true)
+
 
 ## Getting Started
 
