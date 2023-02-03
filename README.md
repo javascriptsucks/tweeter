@@ -1,6 +1,11 @@
 # Tweeter Project
 
-Tweeter is a simple, single-page Twitter clone. Students will build upon to practice HTML, CSS, JS, jQuery, AJAX, SASS front-end skills, and their Node, Express back-end skills.
+Tweeter is a simple, single-page Twitter clone. Students will build upon to practice HTML, CSS, JS, jQuery, AJAX, SASS front-end skills, resposive design, and their Node, Express back-end skills.
+
+## Final Product
+!["screenshot of home page"]()
+!["screenshot of home page"]()
+!["screenshot of home page"]()
 
 ## Getting Started
 
@@ -15,3 +20,5 @@ Tweeter is a simple, single-page Twitter clone. Students will build upon to prac
 - Express
 - Node 5.10.x or above
 - SASS
+
+
