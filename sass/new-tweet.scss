@@ -1,20 +1,27 @@
 /* New tweet form CSS styles */
+
+$primary-color: rgb(170, 227, 226);
+$logo-font: Bungee;
+$icon-color: rgb(202, 152, 36);
+
 .new-tweet {
   width: 80%;
   margin: 35px auto;
   height: 300px;
   display: flex;
   align-items: center;
+
 }
 
 .newTweet-form {
   display: flex;
   flex-direction: column;
   width: 100%;
+  textarea:focus {
+    outline: none;
+  }
 }
-.newTweet-form textarea:focus {
-  outline: none;
-}
+
 
 #newTweet-text {
   height: 3em;
@@ -28,29 +35,32 @@
   background-color: #f4f1ec;
   resize: none;
   overflow: auto;
+
 }
 
 .newTweet-tooLong {
-  color: red;
+  color: red
 }
+
 
 .newTweet-Submit {
   display: flex;
   justify-content: space-between;
   margin-top: 12px;
-  font-family: Bungee;
-}
-.newTweet-Submit button {
+  font-family: $logo-font;
+  button {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0px;
   color: #ffffff;
   font-size: 18px;
-  background: rgb(170, 227, 226);
+  background: $primary-color;
   padding: 10px 20px 10px 20px;
   text-decoration: none;
-}
-.newTweet-Submit button:hover {
+  &:hover {
   background: #3cb0fd;
   text-decoration: none;
 }
+}
+}
+

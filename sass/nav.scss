@@ -1,9 +1,14 @@
 /* nav bar CSS */
+
+$primary-color: rgb(170, 227, 226);
+$logo-font: Bungee;
+$icon-color: rgb(202, 152, 36);
+
 .nav-container {
   position: fixed;
   height: 120px;
   width: 100%;
-  background-color: rgb(170, 227, 226);
+  background-color: $primary-color;
   color: #ffffff;
   display: flex;
   justify-content: space-between;
@@ -11,7 +16,7 @@
 }
 
 .nav-logo {
-  font-family: Bungee;
+  font-family: $logo-font;
   margin: 50px 1.5em auto 1.5em;
 }
 
@@ -21,23 +26,21 @@
   margin: auto 1.5em auto 1.5em;
   align-items: center;
   font-size: medium;
-}
-.nav-slogContainer span > i:hover {
-  color: rgb(202, 152, 36);
-  animation: potato 2s ease infinite;
+
+  span>i:hover {
+    color: $icon-color;
+    animation: potato 2s ease infinite;
+  }
+
 }
 
 @keyframes potato {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-30px);
-  }
-  60% {
-    transform: translateY(-15px);
-  }
+	0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+	40% {transform: translateY(-30px);}
+	60% {transform: translateY(-15px);}
 }
+
+
 .nav-slog {
   margin: 15px auto;
 }

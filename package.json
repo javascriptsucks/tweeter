@@ -4,9 +4,10 @@
   "description": "A twitter clone by Lighthouse Labs for web bootcamp students to learn front-end dev skillz",
   "main": "server/index.js",
   "scripts": {
+    "sass-watch": "sass sass:public/styles --watch --poll --no-source-map",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/index.js",
-    "local": "./node_modules/.bin/nodemon --watch server -e js server/index.js"
+    "local": "nodemon --watch server -e js server/index.js"
   },
   "author": "Chang Li at Lighthouse Labs",
   "license": "ISC",
@@ -18,5 +19,13 @@
   },
   "devDependencies": {
     "nodemon": "^1.9.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/javascriptsucks/tweeter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/javascriptsucks/tweeter/issues"
+  },
+  "homepage": "https://github.com/javascriptsucks/tweeter#readme"
 }

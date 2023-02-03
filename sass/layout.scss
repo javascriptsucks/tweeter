@@ -3,10 +3,11 @@
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
+$primary-font: Source Sans Pro;
+
 html {
   box-sizing: border-box;
 }
-
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -14,17 +15,20 @@ html {
 /*
  * Global layout stuff
  */
+
 body {
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
-  font-family: Source Sans Pro;
+  font-family: $primary-font;
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
 /* main CSS styles */
+
 .main-container {
   margin: auto;
   width: 90%;
@@ -42,32 +46,40 @@ body {
   color: aliceblue;
   border: none;
   border-radius: 50%;
-}
-.main-toggle:hover {
-  color: rgba(214, 19, 85, 0.8);
+  &:hover {
+  color: rgb(214, 19, 85, 0.8);
   box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
+}
 
-@media screen and (min-width: 768px) {
-  header {
-    float: left;
-    margin-top: 100px;
-    width: 40%;
-  }
-  .header-container {
-    width: 40%;
-  }
-  main {
-    float: right;
-  }
-  .main-container {
-    width: 60%;
-    margin-top: 150px;
-  }
-  .tweet-header {
-    width: 95%;
-    justify-content: space-between;
-  }
+
+
+@media screen and (min-width:768px) {
+header {
+  float: left;
+  margin-top: 100px;
+  width: 40%;
+}
+
+.header-container {
+  width: 40%;
+}
+
+main {
+  float: right;
+
+}
+
+.main-container {
+  width: 60%;
+   margin-top: 150px;
+}
+
+.tweet-header {
+  width: 95%;
+  justify-content: space-between;
+}
+
 }
