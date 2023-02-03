@@ -6,8 +6,8 @@ $.fn.extend({
   },
 
   charCount: function() {
-    $('#newTweet-text').on('keyup', function() {
-      let countLeft=$.fn.countCharRemain();
+    $('#newTweet-text').on('input', function() {
+      let countLeft = $.fn.countCharRemain();
 
       //Find target: output and change text inside
       $(this).siblings(0).children('output').text(countLeft);
