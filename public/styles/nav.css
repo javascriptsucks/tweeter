@@ -22,6 +22,9 @@
   align-items: center;
   font-size: medium;
 }
+.nav-slogContainer span > i {
+  color: rgba(214, 19, 85, 0.8);
+}
 .nav-slogContainer span > i:hover {
   color: rgb(202, 152, 36);
   animation: potato 2s ease infinite;

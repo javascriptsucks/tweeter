@@ -27,6 +27,10 @@ $icon-color: rgb(202, 152, 36);
   align-items: center;
   font-size: medium;
 
+  span>i {
+    color: rgb(214, 19, 85, 0.8);
+  }
+
   span>i:hover {
     color: $icon-color;
     animation: potato 2s ease infinite;
